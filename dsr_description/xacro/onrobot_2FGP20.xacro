@@ -2,6 +2,8 @@
 
 <robot name="onrobot_2FGP20_gripper" xmlns:xacro="http://www.ros.org/wiki/xacro">
   <xacro:include filename="$(find dsr_description)/xacro/onrobot_2FGP20_gripper.urdf.xacro" />
+  <xacro:include filename="$(find dsr_description)/xacro/onrobot_2FGP20_gripper_base.urdf.xacro" />
+  <xacro:include filename="$(find dsr_description)/xacro/onrobot_2FGP20_gripper_paddle.urdf.xacro" />
   
   <gazebo>
     <plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so"> 
@@ -41,5 +43,15 @@
   <xacro:onrobot_2FGP20_gripper prefix="" parent="gripper_root_link" >
     <origin xyz="0.05 0 0.85" rpy="0 0 0"/>
   </xacro:onrobot_2FGP20_gripper>
+
+  <xacro:onrobot_2FGP20_gripper_base prefix="" parent="gripper_root_link" >
+    <origin xyz="0.05 0 0.85" rpy="0 0 0"/>
+  </xacro:onrobot_2FGP20_gripper>
+ 
+  <xacro:onrobot_2FGP20_gripper_paddle prefix="" parent="2FGP20_gripper_base" mount_point="movable" >
+  <xacro_paddle_joint x="0.09859" y="0.003" z="0.47212" roll="0.00" pitch="0.00" yaw="1.57" mount_point="movable" mount_type="prismatic"/>
+  <xacro_paddle_joint x="0.09859" y="0.003" z="0.047212" roll="0.00" pitch="0.00" yaw="1.57" mount_point="fixed" mount_type="fixed"/>
   
+  </xacro:onrobot_2FGP20_gripper>
+ 
 </robot>
